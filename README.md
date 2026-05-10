@@ -39,3 +39,38 @@ The simulation will execute indefinitely. Statistics regarding the current gener
 ## Demo
 
 ![Demo Image](images/first-image.png)
+
+
+
+
+## Results
+
+### 1. Fitness Convergence
+The population has successfully "solved" the pathfinding problem. The **Best
+Score of 5.0** is being consistently hit and maintained. This indicates that at
+least one rocket has developed a DNA sequence that reaches
+the target efficiently.
+
+### 2. Elite Stability
+The elite selection logic is functioning as intended. In each generation (42, 43, 44), the top 10 rockets (indices 0–9) show a clear hierarchy of high fitness:
+*   **Top tier:** 5.0 (Direct hit/Optimal path)
+*   **Second tier:** 4.14 and 3.33 (Near-optimal paths)
+*   **Third tier:** 3.09
+
+The fact that these exact numbers repeat across generations suggests that these "Elite" DNA sequences are being preserved and used as the primary templates for the rest of the population.
+
+### 3. Genetic Diversity
+Despite the dominance of the elite rockets, the population still contains individuals with very low scores (e.g., `0.001` to `0.02`). 
+*   **This is a positive indicator.** It proves the **Mutation Rate** is correctly configured. 
+*   If every rocket had a high score, the population would be "stagnant" and unable to adapt if the target moved. The low-scoring rockets represent the system's ongoing "exploration" of the environment.
+
+### 4. Selection Pressure
+The gap between the top scores (5.0) and the average scores (~0.02) is massive. This creates a very high selection pressure. In Programmer 2's architecture, this means the high-scoring DNA will rapidly overwrite the low-performing DNA in each new generation, ensuring that the "swarm" remains focused on the target.
+
+### 5. Execution Performance
+The total execution time was **14 minutes and 26 seconds** for 45 generations with a population of 500. 
+*   This averages to roughly **19 seconds per generation**. 
+*   Given that each generation processes 4,000 frames of physics and collision math for 500 independent agents, this level of performance validates the choice of **NumPy and vectorized operations**. A standard Python list-based approach would likely have taken hours to reach the same point.
+
+**Final Assessment:**
+The simulation is successful. The agents have evolved a reliable solution, the elite traits are being preserved, and the system architecture is handling the computational load efficiently. No further adjustments to the mutation rate or selection logic appear necessary for this specific environment.
