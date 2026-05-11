@@ -27,8 +27,8 @@ def main() -> None:
     frames: int = 0
 
     rockets: List[Rocket] = create_rockets(dna_count=FRAME_MAX, number_of_rockets=ROCKETS_COUNT)
-    obstacle : Obstacle = Obstacle(np.array([X_SCREEN_SIZE // 2.5, Y_SCREEN_SIZE // 2.5]))
-    reward : Reward = Reward(np.array([100 , 100 ]))
+    obstacle : Obstacle = Obstacle(np.array([X_SCREEN_SIZE // 2.5, Y_SCREEN_SIZE // 2.5], dtype=np.int16))
+    reward : Reward = Reward(np.array([100 , 100 ], dtype=np.int16))
     game: Game = Game(rockets, ROCKETS_COUNT)
 
     

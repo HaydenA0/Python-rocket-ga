@@ -9,7 +9,7 @@ from reward import Reward
 class Rocket:
     def __init__(self, DNA : np.ndarray) -> None:
         self.dna: np.ndarray = DNA
-        self.position: np.ndarray = np.array([X_SCREEN_SIZE - 100 , Y_SCREEN_SIZE - 150 ], dtype=np.int32)
+        self.position: np.ndarray = np.array([X_SCREEN_SIZE - 100 , Y_SCREEN_SIZE - 150 ], dtype=np.int16)
         self.current_dna_index: int = 0
         self.hit_reward: bool = False
         self.hit_obstacle: bool = False
@@ -37,11 +37,11 @@ class Rocket:
         normal = delta / norm
         direction = self.dna[self.current_dna_index].astype(np.float32)
         reflected = direction - 2 * np.dot(direction, normal) * normal
-        reflected_int = np.sign(reflected).astype(np.int32)
+        reflected_int = np.sign(reflected).astype(np.int8)
         self.position += reflected_int
         radius_sum = ROCKET_RADIUS + OBSTACLE_RADIUS
         self.position = obstacle.position + normal * (radius_sum + 1)
-        self.position = self.position.astype(np.int32)
+        self.position = self.position.astype(np.int16)
 
 
     def set_hit_reward_flag(self) -> None:
@@ -65,7 +65,7 @@ class Rocket:
 
 
 def generate_initial_dna(dna_count: int) -> np.ndarray:
-    return np.random.randint(-1, 2, size=(dna_count, 2)).astype(np.int32)
+    return np.random.randint(-1, 2, size=(dna_count, 2), dtype=np.int8)
 
 
 

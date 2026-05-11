@@ -78,7 +78,7 @@ def born_rocket(father: Rocket, mother: Rocket) -> Rocket:
 
     mutation_mask = np.random.rand(len(child_dna)) < MUTATION_RATE
 
-    new_genes = np.random.randint(-1, 2, size=(mutation_mask.sum(), 2), dtype=np.int32)
+    new_genes = np.random.randint(-1, 2, size=(mutation_mask.sum(), 2), dtype=np.int8)
 
     child_dna[mutation_mask] = new_genes
 

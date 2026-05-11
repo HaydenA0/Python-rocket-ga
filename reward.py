@@ -10,7 +10,6 @@ class Reward:
         self.reward: int = 0
 
     def draw(self, screen: pygame.Surface) -> None:
-        x: np.int32 = self.position[0]
-        y: np.int32 = self.position[1]
+        x: np.int16 = self.position[0]
+        y: np.int16 = self.position[1]
         pygame.draw.circle(screen, REWARD_COLOR, (x, y), REWARD_RADIUS)
-

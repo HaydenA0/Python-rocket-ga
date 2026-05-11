@@ -10,8 +10,7 @@ class Obstacle:
         self.position: np.ndarray = position
 
     def draw(self, screen: pygame.Surface) -> None:
-        x: np.int32 = self.position[0]
-        y: np.int32 = self.position[1]
+        x: np.int16 = self.position[0]
+        y: np.int16 = self.position[1]
         pygame.draw.circle(screen, OBSTACLE_COLOR, (x, y), OBSTACLE_RADIUS)
-
 
