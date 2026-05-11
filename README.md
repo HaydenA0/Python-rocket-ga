@@ -64,9 +64,6 @@ Despite the dominance of the elite rockets, the population still contains indivi
 *   **This is a positive indicator.** It proves the **Mutation Rate** is correctly configured. 
 *   If every rocket had a high score, the population would be "stagnant" and unable to adapt if the target moved. The low-scoring rockets represent the system's ongoing "exploration" of the environment.
 
-### 4. Selection Pressure
-The gap between the top scores (5.0) and the average scores (~0.02) is massive. This creates a very high selection pressure. In Programmer 2's architecture, this means the high-scoring DNA will rapidly overwrite the low-performing DNA in each new generation, ensuring that the "swarm" remains focused on the target.
-
 ### 5. Execution Performance
 The total execution time was **14 minutes and 26 seconds** for 45 generations with a population of 500. 
 *   This averages to roughly **19 seconds per generation**. 
